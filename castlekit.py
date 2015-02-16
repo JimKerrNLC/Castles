@@ -179,7 +179,11 @@ def drawObjectRotated(template,ox,oy,oz):
             x+=1
         y+=1
 
-def drawObject(template,Rot,ox,oy,oz):
+def drawObject(template,Rot,x,y,level):
+    # x = oz; y = ox; level  = oy
+    ox = y * 10
+    oy = (level * 5)-1
+    oz = x * 10
     global mc
     if Rot == "NS":
         drawObjectNormal(template,ox,oy,oz)
