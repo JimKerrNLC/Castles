@@ -62,7 +62,7 @@ def getBlock(num):
     if num == 0:
         return block.AIR
     elif num == 1:
-        return block.AIR
+        return block.SANDSTONE
     elif num == 2:
         return Floor
     elif num == 3:
@@ -78,9 +78,7 @@ def getBlock(num):
     else:
         return block.AIR
     
-    
-
-def drawObject(template,ox,oy,oz):
+def drawObjectNormal(template,ox,oy,oz):
     global mc
     #starting point
     y=0
@@ -131,6 +129,68 @@ def drawObject(template,ox,oy,oz):
         y+=1
 
 
+def drawObjectRotated(template,ox,oy,oz):
+    global mc
+    #starting point
+    y=0
+    for layer in template:
+        x = 0
+        for row in layer:
+            z=0
+            for block in row:
+                #plot row x
+                # set block
+                # material = block
+                # xpos = ox+x
+                # ypos = oy+y
+                # zpos = oz+z
+                mc.setBlock(x+ox,y+oy,z+oz, getBlock(block))
+                z+=1
+            for block in reversed (row):
+                #plot row x
+                # set block
+                # material = block
+                # xpos = ox+x
+                # ypos = oy+y
+                # zpos = oz+z
+                mc.setBlock(x+ox,y+oy,z+oz, getBlock(block))
+                z+=1
+            x+=1
+        for row in reversed(layer):
+            z=0
+            for block in row:
+                #plot row x
+                # set block
+                # material = block
+                # xpos = ox+x
+                # ypos = oy+y
+                # zpos = oz+z
+                mc.setBlock(x+ox,y+oy,z+oz, getBlock(block))
+                z+=1
+            for block in reversed (row):
+                #plot row x
+                # set block
+                # material = block
+                # xpos = ox+x
+                # ypos = oy+y
+                # zpos = oz+z
+                mc.setBlock(x+ox,y+oy,z+oz, getBlock(block))
+                z+=1
+            x+=1
+        y+=1
+
+def drawObject(template,Rot,ox,oy,oz):
+    global mc
+    if Rot == "NS":
+        drawObjectNormal(template,ox,oy,oz)
+    elif Rot == "EW":
+        drawObjectRotated(template,ox,oy,oz)
+    else:
+        print "An error occured with the rotation",Rot
+        
+
+
+
 #class CastleBlock:
 
 def drawGroundFloorWall(Rot, nFloor, nWall, nDoor, x,y,z):
@@ -143,7 +203,7 @@ def drawGroundFloorWall(Rot, nFloor, nWall, nDoor, x,y,z):
     Wall = nWall
     tDoor = Door
     Door = nDoor
-    drawObject(grdFloorWall,x,y,z)
+    drawObject(grdFloorWall,Rot,x,y,z)
     Floor = tFloor
     Wall = tWall
     Door = tDoor
@@ -159,7 +219,7 @@ def drawUpperFloorWall(Rot,nFloor, nWall, nDoor, x,y,z):
     Wall = nWall
     tDoor = Door
     Door = nDoor
-    drawObject(uprFloorWall,x,y,z)
+    drawObject(uprFloorWall,Rot,x,y,z)
     Floor = tFloor
     Wall = tWall
     Door = tDoor
@@ -174,7 +234,7 @@ def drawTopWall(Rot, nFloor, nWall, nDoor, x,y,z):
     Wall = nWall
     tDoor = Door
     Door = nDoor
-    drawObject(topWall,x,y,z)
+    drawObject(topWall,Rot,x,y,z)
     Floor = tFloor
     Wall = tWall
     Door = tDoor
@@ -189,7 +249,7 @@ def drawTurret(nFloor, nWall, nDoor, x,y,z):
     Wall = nWall
     tDoor = Door
     Door = nDoor
-    drawObject(anyTurret,x,y,z)
+    drawObject(anyTurret,"NS",x,y,z)
     Floor = tFloor
     Wall = tWall
     Door = tDoor
@@ -204,7 +264,7 @@ def drawTopTurret(nFloor, nWall, nDoor, x,y,z):
     Wall = nWall
     tDoor = Door
     Door = nDoor
-    drawObject(topTurret,x,y,z)
+    drawObject(topTurret,"NS",x,y,z)
     Floor = tFloor
     Wall = tWall
     Door = tDoor
