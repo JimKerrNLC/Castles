@@ -14,49 +14,23 @@ if __name__ == "__main__":
     ck = castlekit
 
     # Castle Front
+
+    # Draw 2 storey turret
+    ck.drawTurret(Floor,Wall,Door,0,0,0)
+    ck.drawTurret(Floor,Wall,Door,0,0,1)
+    ck.drawTopTurret(Floor,Wall,Door,0,0,2)
     
     #Draw 1 base floor and 1 extra floors
-    ck.drawGroundFloorWall("NS",Floor,Wall,Door,1,-1,1)
-    ck.drawUpperFloorWall("NS",Floor,Wall,Door,1,4,1)
+    ck.drawGroundFloorWall("EW",Floor,Wall,Door,1,0,0)
+    ck.drawTopWall("EW",Floor,Wall,Door,1,0,1)
 
-    # Draw castelations on top
-    ck.drawTopWall("NS",Floor,Wall,Door,1,9,1)
+    #Draw 1 base floor and 1 extra floors
+    ck.drawGroundFloorWall("EW",Floor,Wall,Door,2,0,0)
+    ck.drawTopWall("EW",Floor,Wall,Door,2,0,1)
 
     # Draw 2 storey turret
-    ck.drawTurret(Floor,Wall,Door,11,-1,1)
-    ck.drawTurret(Floor,Wall,Door,11,4,1)
-
-    # Draw Turret top`
-    ck.drawTopTurret(Floor,Wall,Door,11,9,1)
+    ck.drawTurret(Floor,Wall,Door,3,0,0)
+    ck.drawTurret(Floor,Wall,Door,3,0,1)
+    ck.drawTopTurret(Floor,Wall,Door,3,0,2)
     
-    # Draw 2 storey turret
-    ck.drawTurret(Floor,Wall,Door,-9,-1,1)
-    ck.drawTurret(Floor,Wall,Door,-9,4,1)
-
-    # Draw Turret top
-    ck.drawTopTurret(Floor,Wall,Door,-9,9,1)
-
-    # Castle Walls
-    ck.drawGroundFloorWall("EW",Floor,Wall,Door,-9,-1,11)
-    ck.drawTopWall("EW",Floor,Wall,Door,-9,4,11)
-
-
-    # Draw 2 storey turret
-    ck.drawTurret(Floor,Wall,Door,-9,-1,21)
-    # Draw Turret top
-    ck.drawTopTurret(Floor,Wall,Door,-9,4,21)
-
-    # Castle Walls
-    ck.drawGroundFloorWall("NS",Floor,Wall,Door,1,-1,21)
-    ck.drawTopWall("NS",Floor,Wall,Door,1,4,21)
-
-    # Draw 2 storey turret
-    ck.drawTurret(Floor,Wall,Door,11,-1,21)
-    # Draw Turret top
-    ck.drawTopTurret(Floor,Wall,Door,11,4,21)
-
-    # Castle Walls
-    ck.drawGroundFloorWall("EW",Floor,Wall,Door,11,-1,11)
-    ck.drawTopWall("EW",Floor,Wall,Door,11,4,11)
-
 
