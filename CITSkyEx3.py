@@ -23,8 +23,9 @@ if __name__ == "__main__":
 
     # Draw side wall
     ck.drawGroundFloorWall("NS",Floor,Wall,Door,0,1,0)
+    ck.drawUpperFloorWall("NS",Floor,Wall,Door,0,1,1)
     # Add the Top of the Wall (castellation)
-    ck.drawTopWall("NS",Floor,Wall,Door,0,1,1)
+    ck.drawTopWall("NS",Floor,Wall,Door,0,1,2)
 
     # Turrent 3 back 
     ck.drawTurret(Floor,Wall,Door,0,2,0)
